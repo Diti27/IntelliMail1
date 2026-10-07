@@ -6,6 +6,11 @@ IntelliMail is a full-stack AI-powered email management application that helps u
 
 It uses Gemini AI to analyze emails based on **category, priority, sentiment, intent, summary, and action required**, while also generating AI-assisted reply suggestions.
 
+## 📸 Screenshots
+
+### Dashboard
+
+![IntelliMail Dashboard](screenshots/dashboard.png)
 ---
 
 ## ✨ Features
