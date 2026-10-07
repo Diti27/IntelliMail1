@@ -1,16 +1,87 @@
-# React + Vite
+# IntelliMail
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+### AI-Powered Email Intelligence & Response Assistant
 
-Currently, two official plugins are available:
+IntelliMail is a full-stack AI-powered email management application that helps users understand, organize, and respond to emails more efficiently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+It uses Gemini AI to analyze emails based on **category, priority, sentiment, intent, summary, and action required**, while also generating AI-assisted reply suggestions.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the Oxlint configuration
+- 🤖 **AI Email Analysis**
+  - Email category classification
+  - Priority detection
+  - Sentiment analysis
+  - Intent detection
+  - Automatic email summarization
+  - Action-required detection
+  - AI confidence score
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- ✉️ **Email Management**
+  - Inbox
+  - Sent
+  - Drafts
+  - Starred
+  - Archive
+  - Trash
+  - Read / unread status
+
+- 💬 **AI-Powered Replies**
+  - Generate suggested replies
+  - Choose reply tone
+  - Edit generated replies
+  - Send replies directly from the application
+
+- 🔔 **Notifications**
+  - Highlights unread
+  - High-priority
+  - Action-required emails
+
+- 💾 **Persistent Storage**
+  - Email data and user actions are stored in Supabase.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- JavaScript
+- CSS
+
+### Backend
+- Python
+- FastAPI
+- REST APIs
+
+### AI
+- Google Gemini API
+
+### Database
+- Supabase
+
+---
+
+## 🏗️ Architecture
+
+```text
+                 ┌─────────────────────┐
+                 │     React Frontend  │
+                 │      + Vite         │
+                 └──────────┬──────────┘
+                            │
+                       REST API
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │     FastAPI         │
+                 │      Backend        │
+                 └──────┬───────┬──────┘
+                        │       │
+                ┌───────▼───┐ ┌─▼────────────┐
+                │  Gemini   │ │   Supabase   │
+                │    AI     │ │   Database   │
+                └───────────┘ └──────────────┘
