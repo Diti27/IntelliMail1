@@ -13,16 +13,20 @@ import {
 
 export default function DashboardView({ emails, onSelectEmail, onNavigateToInbox }) {
   const totalEmails = emails.length;
-  const unreadEmails = emails.filter(e => !e.read).length;
+  const unreadEmails = emails.filter(e => !e.read && e.folder === 'inbox').length;
   const highPriorityEmails = emails.filter(e => e.aiAnalysis?.priority === 'High');
-  const actionRequiredEmails = emails.filter(e => 
-    e.aiAnalysis?.actionRequired && !e.aiAnalysis.actionRequired.toLowerCase().includes('no action')
-  );
+  const actionRequiredEmails = emails.filter(e => {
+    const action = e.aiAnalysis?.actionRequired || e.aiAnalysis?.action_required || '';
+    return action && !action.toLowerCase().includes('no action');
+  });
 
-  const urgentItems = emails.filter(e => 
-    e.aiAnalysis?.priority === 'High' || 
-    (e.aiAnalysis?.actionRequired && !e.aiAnalysis.actionRequired.toLowerCase().includes('no action'))
-  ).slice(0, 4);
+  const urgentItems = emails.filter(e => {
+    const action = e.aiAnalysis?.actionRequired || e.aiAnalysis?.action_required || '';
+    return (
+      e.aiAnalysis?.priority === 'High' ||
+      (action && !action.toLowerCase().includes('no action'))
+    );
+  }).slice(0, 4);
 
   return (
     <div className="flex-1 overflow-y-auto p-4 lg:p-8 bg-slate-50">

@@ -17,6 +17,7 @@ export default function Sidebar({
   activeView, 
   setActiveView, 
   unreadCount, 
+  draftsCount,
   highPriorityCount, 
   actionCount,
   mobileOpen,
@@ -27,7 +28,7 @@ export default function Sidebar({
     { id: 'inbox', label: 'Inbox', icon: Inbox, badge: unreadCount },
     { id: 'starred', label: 'Starred', icon: Star },
     { id: 'sent', label: 'Sent', icon: Send },
-    { id: 'drafts', label: 'Drafts', icon: FileText, badge: 1 },
+    { id: 'drafts', label: 'Drafts', icon: FileText, badge: draftsCount },
     { id: 'archive', label: 'Archive', icon: Archive },
     { id: 'trash', label: 'Trash', icon: Trash2 },
   ];

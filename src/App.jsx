@@ -386,11 +386,11 @@ export default function App() {
 
   // Counts for badges
   const unreadCount = emails.filter((e) => !e.read && e.folder === 'inbox').length;
+  const draftsCount = emails.filter((e) => e.folder === 'drafts').length;
   const highPriorityCount = emails.filter(
-    (e) => e.aiAnalysis?.priority === 'High' && e.folder === 'inbox'
+    (e) => e.aiAnalysis?.priority === 'High'
   ).length;
   const actionCount = emails.filter((e) => {
-    if (e.folder !== 'inbox') return false;
     const action = e.aiAnalysis?.actionRequired || e.aiAnalysis?.action_required || '';
     return action && !action.toLowerCase().includes('no action');
   }).length;
@@ -450,6 +450,7 @@ export default function App() {
         activeView={activeView}
         setActiveView={setActiveView}
         unreadCount={unreadCount}
+        draftsCount={draftsCount}
         highPriorityCount={highPriorityCount}
         actionCount={actionCount}
         mobileOpen={mobileNavOpen}
